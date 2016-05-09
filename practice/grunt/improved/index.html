@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AC University: Task Automators - Grunt.js | Gulp.js</title>
+  <!-- This has our compiled SASS css styles  -->
+  <link rel="stylesheet" href="src/styles/main.css" />
+</head>
+<body>
+  <div id="content">
+    <div class="page-title">
+      <h3>This is an example of how we can improve Grunt.</h3>
+    </div>
+
+    <div class="page-content">
+      <p>Two tasks available: </p>
+      <ul>
+        <li><strong>grunt build</strong>: To build files for production</li>
+        <li><strong>grunt</strong> or <strong>grunt default</strong>: Starts grunt to watch file changes</li>
+      </ul>
+      <p><small>Both tasks changes <strong>index.html</strong> file. So, after you run each task, checkout JS and CSS files in network tab to see the differences.</small></p>
+    </div>
+    
+    <div class="page-content">
+      <p>We are going to use the following plugins:</p>
+      <ul>
+        <li><span>Load Grunt Tasks:</span> 
+          <ul>
+            <li>This plugin is responsible for loading tasks accordingly to <strong>package.json</strong> file, instead of doing <strong>loadNpmTasks</strong> for all your packages.</li>
+            <li><a href="https://github.com/sindresorhus/load-grunt-tasks" target="_blank">Link</a></li>
+          </ul>
+        </li>
+        <li><span>Load Grunt Config:</span>
+          <ul>
+            <li>This plugin is responsible for modularizing Grunt Tasks, ie, we can put each task file separately from Grunt Config File (<strong>Gruntfile.js</strong>).</li>
+            <li><a href="https://github.com/firstandthird/load-grunt-config" target="_blank">Link</a></li>
+          </ul>
+        </li>
+        <li><span>JSHint:</span>
+          <ul>
+            <li>Checks Javascript syntax.</li>
+            <li><a href="https://github.com/gruntjs/grunt-contrib-jshint" target="_blank">Link</a></li>
+          </ul>
+        </li>
+        <li><span>Compass:</span>
+          <ul>
+            <li>Compiles SASS files to CSS.</li>
+            <li><a href="https://github.com/gruntjs/grunt-contrib-compass" target="_blank">Link</a></li>
+          </ul>
+        </li>
+        <li><span>Grunt Uglify:</span>
+          <ul>
+            <li>Minify and Uglify Javascript files.</li>
+            <li><a href="https://github.com/gruntjs/grunt-contrib-uglify" target="_blank">Link</a></li>
+          </ul>
+        </li>
+        <li><span>Grunt watch:</span>
+          <ul>
+            <li>Watch for file changes.</li>
+            <li><a href="https://github.com/gruntjs/grunt-contrib-watch" target="_blank">Link</a></li>
+          </ul>
+        </li>
+        <li><span>Grunt Text Replace:</span>
+          <ul>
+            <li>Replace texts in files.</li>
+            <li><a href="https://github.com/yoniholmes/grunt-text-replace" target="_blank">Link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="src/scripts/init.js"></script>
+</body>
+</html>

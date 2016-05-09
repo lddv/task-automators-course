@@ -1,0 +1,57 @@
+/* Let's import our SASS files */
+/* After compiling, it will create a file src/styles/main.css */
+/* line 1, sass/_general.scss */
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  background-color: rgba(221, 221, 221, 0.3);
+}
+
+/* line 8, sass/_general.scss */
+h3 {
+  font-size: 1.3em;
+  color: #666;
+  text-decoration: underline;
+}
+
+/* line 14, sass/_general.scss */
+p {
+  margin: 5px 0;
+}
+
+/* line 18, sass/_general.scss */
+#content {
+  margin: 10px 40px;
+}
+/* line 21, sass/_general.scss */
+#content .page-content {
+  border: 1px dashed #ddd;
+  padding: 5px;
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+/* line 1, sass/_index.scss */
+ul {
+  list-style: none;
+}
+/* line 6, sass/_index.scss */
+ul > li span {
+  display: block;
+  text-decoration: underline;
+  font-weight: bold;
+}
+/* line 12, sass/_index.scss */
+ul > li ul {
+  margin: 10px 0;
+  padding-left: 10px;
+}
+/* line 18, sass/_index.scss */
+ul > li ul li:first-child {
+  font-style: italic;
+}
+/* line 22, sass/_index.scss */
+ul > li ul li a {
+  color: green;
+}
