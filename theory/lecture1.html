@@ -215,7 +215,181 @@
 								<p align="justify">
 									We will heavily rely on community support by attaching plugins to our application. Check out more at: <a href="http://gruntjs.com/plugins">Official Plugins Page</a>. With no further ado, let's dive into it.
 								</p>
-								<!--  ########################################################################################## -->
+
+								<header>
+                  <h4>Installation</h4>
+                </header>
+
+								<p align="justify">
+									We start by creating an empty <em>package.json</em>. Just insert a name for your project and then type enter to every
+									other option that might appear.
+
+									<!-- HTML generated using hilite.me -->
+									<div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">npm</span> <span style="color: #d0d0d0">init</span></pre>
+									</div>
+									<div class="ac-caption">Create an empty <em>package.json</em></div>
+								</p>
+
+								<p align="justify">
+									<!-- HTML generated using hilite.me -->
+									<div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">npm</span> <span style="color: #d0d0d0">install</span> <span style="color: #d0d0d0">grunt</span> <span style="color: #d0d0d0">--save-dev</span></pre></div>
+									<div class="ac-caption">Install grunt locally</div>
+								</p>
+
+								<p align="justify">
+									Don't forget to get the <strong>src</strong> folder from <a href="https://github.com/lddv/task-automators-course">our repository</a>.
+									Now grab this sample Gruntfile.js and we will start analysing it.
+									<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+
+  <span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">initConfig</span><span style="color: #f8f8f2">({</span>
+    <span style="color: #a6e22e">jshint</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #a6e22e">files</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;Gruntfile.js&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;src/**/*.js&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;test/**/*.js&#39;</span><span style="color: #f8f8f2">],</span>
+      <span style="color: #a6e22e">options</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #a6e22e">globals</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">jQuery</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span>
+        <span style="color: #f8f8f2">}</span>
+      <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">},</span>
+    <span style="color: #a6e22e">watch</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #a6e22e">files</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;&lt;%= jshint.files %&gt;&#39;</span><span style="color: #f8f8f2">],</span>
+      <span style="color: #a6e22e">tasks</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;jshint&#39;</span><span style="color: #f8f8f2">]</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">});</span>
+
+  <span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">loadNpmTasks</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;grunt-contrib-jshint&#39;</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">loadNpmTasks</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;grunt-contrib-watch&#39;</span><span style="color: #f8f8f2">);</span>
+
+  <span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">registerTask</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;default&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;jshint&#39;</span><span style="color: #f8f8f2">]);</span>
+
+<span style="color: #f8f8f2">};</span>
+</pre>
+</div>
+									<div class="ac-caption">Gruntfile.js</div>
+								</p>
+
+								<p align="justify">
+									Let's break this file into subsets:
+								</p>
+
+								<!-- HTML generated using hilite.me -->
+								<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span><span style="color: #f8f8f2">};</span></pre>
+								</div>
+								<div class="ac-caption">Wrapper function</div>
+
+								<!-- HTML generated using hilite.me -->
+								<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">initConfig</span><span style="color: #f8f8f2">({});</span></pre>
+								</div>
+								<div class="ac-caption">Configuration initializer</div>
+
+								<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">loadNpmTasks</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;grunt-contrib-jshint&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">loadNpmTasks</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;grunt-contrib-watch&#39;</span><span style="color: #f8f8f2">);</span>
+</pre></div>
+								<div class="ac-caption">Plugin loader</div>
+
+								<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">registerTask</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;default&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;jshint&#39;</span><span style="color: #f8f8f2">]);</span>
+</pre></div>
+								<div class="ac-caption">Required default task declaration</div>
+
+								<p align="justify">
+									The rest of the code are task declarations that almost always match the plugin name after <code>grunt-contrib</code>.
+									Inside, each task has its own way of functioning, but some similarities already show up when we compare what we have
+									at hand. <code>files: []</code> is a common attribute that will reference which source might be considered for that particular task.
+								</p>
+
+								<p align="justify">
+									It's possible to see interesting wildcards on the path names: <code>**</code> stands for any folder, whilst <code>*</code>
+									stands for any file to be matched.
+									Furthermore, we can also perceive the <a href="http://underscorejs.org/">Underscore</a> template that is referencing
+									variables or attributes inside the same file.
+								</p>
+
+								<header>
+                  <h3><a href="https://youtu.be/WvufFwdqMzg">Are you ready to rumble?</a></h3>
+                </header>
+
+								<p align="justify">
+									Try running <code>grunt</code>. What do you see? Missing something, eh? Install those plugins, always remembering the tag that applies our changes to be reminded by our beloved <em>package.json</em> file.
+
+									<!-- HTML generated using hilite.me -->
+									<div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">npm</span> <span style="color: #d0d0d0">install</span> <span style="color: #d0d0d0">grunt-contrib-jshint</span> <span style="color: #d0d0d0">grunt-contrib-watch</span> <span style="color: #d0d0d0">--save-dev</span></pre></div>
+									<div class="ac-caption">Install missing dependencies</div>
+								</p>
+
+								<p align="justify">
+									Try running <code>grunt</code>. What do you see? <strong>Whoa! What did you do to my code?</strong> Easy now. That's
+									JSHint showing himself off. Nothing to worry about, actually from now on we are going to be glad if he pops up, telling us
+									our code is not well-formatted.
+								</p>
+
+								<header>
+                  <h4>Watch</a></h4>
+                </header>
+
+								<p align="justify">
+									One of the most important tasks in my opinion, <strong>watch</strong> will enhance your development experience as you
+									may leave it running and make it aware of every change that happen on the files listed inside your task definition.
+								</p>
+
+								<header>
+                  <h4>Concatenate</a></h4>
+                </header>
+
+								<p align="justify">
+									It is great to have separate files with different concerns but when it comes to build it is kind of cumbersome to not have
+									everything in one spot. That's why we are learning this technique.
+
+									<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #a6e22e">pkg</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">file</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">readJSON</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;package.json&#39;</span><span style="color: #f8f8f2">),</span>
+    <span style="color: #a6e22e">concat</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #a6e22e">options</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #75715e">// define a string to put between each file in the concatenated output</span>
+        <span style="color: #a6e22e">separator</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;;&#39;</span>
+      <span style="color: #f8f8f2">},</span>
+      <span style="color: #a6e22e">dist</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #75715e">// the files to concatenate</span>
+        <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;src/**/*.js&#39;</span><span style="color: #f8f8f2">],</span>
+        <span style="color: #75715e">// the location of the resulting JS file</span>
+        <span style="color: #a6e22e">dest</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;dist/&lt;%= pkg.name %&gt;.js&#39;</span>
+      <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">},</span>
+</pre></div>
+									<div class="ac-caption">Append concat to your Gruntfile</div>
+								</p>
+
+								<p align="justify">
+									<strong>More terminal errors?</strong> Fear not! We shall do the same procedure of installing the plugin and add it
+									to the bottom of our <em>Gruntfile</em>, so it recognizes the task.
+
+									<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">npm</span> <span style="color: #d0d0d0">install</span> <span style="color: #d0d0d0">grunt-contrib-concat</span> <span style="color: #d0d0d0">--save-dev</span>
+</pre></div>
+									<div class="ac-caption">Install plugin on terminal</div>
+
+									<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">grunt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">loadNpmTasks</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;grunt-contrib-concat&#39;</span><span style="color: #f8f8f2">);</span>
+</pre></div>
+									<div class="ac-caption">Append to the bottom of Gruntfile</div>
+								</p>
+
+								<header>
+                  <h4>Uglify</a></h4>
+                </header>
+
+								<p align="justify">
+									Minification with variable name editing so they occupy less space in storage, amongst other perks.
+
+									<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">uglify</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">options</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #75715e">// the banner is inserted at the top of the output</span>
+    <span style="color: #a6e22e">banner</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today(&quot;dd-mm-yyyy&quot;) %&gt; */\n&#39;</span>
+  <span style="color: #f8f8f2">},</span>
+  <span style="color: #a6e22e">dist</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #a6e22e">files</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #e6db74">&#39;dist/&lt;%= pkg.name %&gt;.min.js&#39;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;&lt;%= concat.dist.dest %&gt;&#39;</span><span style="color: #f8f8f2">]</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+									<div class="ac-caption">Append uglify</div>
+
+								</p>
               </div>
 						</section>
 
@@ -223,62 +397,7 @@
 						<section id="three">
 							<div class="container">
 
-                <!-- HTML generated using hilite.me -->
-                <div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">var</span> <span style="color: #d0d0d0">Dog</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">function</span><span style="color: #d0d0d0">(name)</span> <span style="color: #d0d0d0">{</span>
-
-  <span style="color: #6ab825; font-weight: bold">var</span> <span style="color: #d0d0d0">_name</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">name;</span>
-
-  <span style="color: #6ab825; font-weight: bold">this</span><span style="color: #d0d0d0">.whoIsAGoodBoy</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">function</span><span style="color: #d0d0d0">()</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #d0d0d0">console.log(_name</span> <span style="color: #d0d0d0">+</span> <span style="color: #ed9d13">&#39; is a good boy!&#39;</span><span style="color: #d0d0d0">);</span>
-  <span style="color: #d0d0d0">};</span>
-
-  <span style="color: #6ab825; font-weight: bold">this</span><span style="color: #d0d0d0">.wiggle</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">function</span><span style="color: #d0d0d0">()</span> <span style="color: #d0d0d0">{</span>
-    <span style="color: #d0d0d0">console.log(_name</span> <span style="color: #d0d0d0">+</span> <span style="color: #ed9d13">&#39; is wiggling.&#39;</span><span style="color: #d0d0d0">);</span>
-  <span style="color: #d0d0d0">};</span>
-
-<span style="color: #d0d0d0">}</span>
-
-<span style="color: #d0d0d0">module.exports</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">Dog;</span>
-</pre></div>
-                <div class="ac-caption">Exporting Dog Class</div>
-
-                <p align="justify">
-                  The line <b>"module.exports = Dog;"</b> is the Node way to export something. By doing this we are adding
-                  our code to Node environment. What is important to know is that each export actually caches the code
-                  exported, this way Node avoid parsing the file every time it is required. We should be very
-                  careful for how we export our code, because this could lead to very weird bugs.
-                </p>
-
-                <p align="justify">
-                  It is time to import our code somewhere else. And how do we do it? Simple, we require this code to Node.
-                  Now that we already did the export in the file, this class of ours is available to us:
-                </p>
-
-                <!-- HTML generated using hilite.me -->
-                <div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">var</span> <span style="color: #d0d0d0">Dog</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">require(</span><span style="color: #ed9d13">&#39;./dog&#39;</span><span style="color: #d0d0d0">);</span>
-
-<span style="color: #6ab825; font-weight: bold">var</span> <span style="color: #d0d0d0">brian</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">new</span> <span style="color: #d0d0d0">Dog(</span><span style="color: #ed9d13">&#39;Brian&#39;</span><span style="color: #d0d0d0">);</span>
-
-<span style="color: #d0d0d0">brian.whoIsAGoodDog();</span>
-<span style="color: #d0d0d0">brian.wiggle();</span>
-</pre></div>
-                <div class="ac-caption">Importing Dog Class</div>
-
-                <p align="justify">
-                  In the code snippet above you can see that we imported the Dog class using <b>"var Dog = require('./Dog')"</b>.
-                  So, we are passing a relative path to require, saying which file we want to import. You can give any
-                  kind of path that you want, relative, absolute or just the module's name (This one I will talk later).
-                  It is not required to add the file extension in the end of the path as Node is always expecting
-                  a JavaScript file. Even though after the first require the code is cached, we still need to execute the
-                  require in every file that we want to import our code.
-                </p>
-
-                <p align="justify">
-                  So, imagine that we have a different folder structure for our code, where index.js is not where our Dog
-                  import snippet is:
-                </p>
-
-                <div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <!-- <div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
                   <pre style="margin: 0; line-height: 125%">
                     <span style="color: #d0d0d0">└── nodeCode</span>
                     <span style="color: #d0d0d0">    ├── lib</span>
@@ -287,12 +406,8 @@
                     <span style="color: #d0d0d0">        └── index.js</span>
                   </pre>
                 </div>
-                <div class="ac-caption">Importing Dog Class</div>
+                <div class="ac-caption">Importing Dog Class</div> -->
 
-                <p align="justify">
-                  We could change the import to <b>var Dog = require('../lib/Dog')</b>, a relative path to the file that
-                  we want to import. Node is smart enough for this same relative path work on Unix or Windows machines.
-                </p>
               </div>
 						</section>
 

@@ -1,3 +1,3 @@
 function multiply (x, y) {
-  return x*y;hgjjcfgc
+  return x*y;
 }
