@@ -1,3 +1,3 @@
-var wow = 'such grace';
+var wow = 'such grace'
 
-var cool = 'yes it is superb!';
+var cool = 'yes it is superb!'

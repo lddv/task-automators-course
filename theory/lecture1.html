@@ -397,6 +397,197 @@
 						<section id="three">
 							<div class="container">
 
+								<header class="major">
+									<h2>Gulp.js</h2>
+								</header>
+
+								<header>
+									<h4>Community support and background</h4>
+								</header>
+
+								<p align="justify">
+									<em>Gulp.js</em> is another tool we are going to focus on learning. It has become very popular over the past years, known by some features, approaches and learning curve. Although <em>Grunt</em>'s community remains larger (some may doubt this), Gulp.js is getting more and more users and contributor, making it nowadays as reliable as its challenger. So, you might choose your flavor, but let me advocate a little better towards our topic.
+								</p>
+
+								<span class="image fit">
+									<img src="images/gulpVSgrunt.png" alt="Gulp vs Grunt" style="width: 100%; margin: 0 auto;"/>
+									<div class="ac-caption">Gulp vs Grunt</div>
+								</span>
+
+								<header>
+									<h4>Why Gulp.js?</h4>
+								</header>
+
+								<p align="justify">
+									<em>Gulp.js</em> is promoted to be faster than <em>Grunt</em>. It relies on the power of node streams, making quick builds that don't write intermediary files to disk, quite a negative point from <em>Grunt</em>. Instead, <em>Gulp</em> keeps its intermediary files on memory and just write down the stream when the destination is set. From its fundamentals, and differing again from <em>Grunt</em>, <em>Gulp.js</em> prefers code over configuration, keeping things simple and making the learning curve less steeper and the tasks more manageable.
+								</p>
+
+								<p align="justify">
+									Moreover, <em>Gulp.js</em> plugins are designed to do only one thing, whereas <em>Grunt</em> plugins may perform multiple tasks. In this way, <em>Gulp</em> feels like it's better at separation of concerns, a key concept on web development. It also interesting that <em>Gulp.js</em> comes with some features built-in that <em>Grunt</em> would have to call an external plugin to do that basic job.
+								</p>
+
+								<header>
+									<h4>Gulp approach: Node Streams and Pipe</h4>
+								</header>
+
+								<p align="justify">
+									The most important Gulp concept is stream. Think of your files passing through a pipe; at one or more points along that pipe, an action is taken.
+								</p>
+
+								<span class="image fit">
+									<img src="images/gulpPipe.png" alt="Gulp Pipe Flow" style="width: 100%; margin: 0 auto;"/>
+									<div class="ac-caption">Gulp Pipe Flow</div>
+								</span>
+
+								<p align="justify">
+									For that matter it is crucial to remember that chaining - or using the highlighted expression: piping - functions together will demand a return from each task, and enable it to flow through the pipe. For a similar result, chaining tasks will demand the exact same behavior.
+								</p>
+
+								<header>
+									<h4>Most used commands</h4>
+								</header>
+
+								<ul>
+									<li><strong>gulp.src</strong>: reach out to where are the files to be considered for the task</li>
+									<li><strong>gulp.dest</strong>: generally where the pipe dumps its content after all the processing has been made. <code>src</code> and <code>dest</code> do together a good copy and paste.</li>
+									<li><strong>gulp.task</strong>: declare and register a task</li>
+									<li><strong>gulp.watch</strong>: our glorious helper that will be waiting for an event of change, add or deletion to trigger and run a task. <code>watch</code> and <code>task</code> return an EventEmitter that emits <code>change</code> events.</li>
+								</ul>
+
+								<span class="image fit">
+									<img src="images/globPattern.png" alt="Glob Pattern" style="width: 100%; margin: 0 auto;"/>
+									<div class="ac-caption">Glob Pattern, used when referring to file paths</div>
+								</span>
+
+								<header>
+                  <h3><a href="https://youtu.be/WvufFwdqMzg">Are you ready to rumble?</a></h3>
+                </header>
+
+								<p align="justify">
+									Let's get started the same way we did on the <em>Grunt.js</em> part. <code>npm init</code> for creating an empty <em>package.json</em> and then as we go through the topics, we start adding the devDependencies to our <em>package.json</em> with our old acquaintance <code>--save-dev</code>. Grab the file below and let's start coding.
+
+								<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">var</span> <span style="color: #a6e22e">gulp</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;gulp&#39;</span><span style="color: #f8f8f2">),</span>
+    <span style="color: #a6e22e">gutil</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;gulp-util&#39;</span><span style="color: #f8f8f2">);</span>
+
+<span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">task</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;log&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">gutil</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Gulp is running!&#39;</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">});</span>
+
+<span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">task</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;default&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;log&#39;</span><span style="color: #f8f8f2">],</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">gutil</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Thanks for using Gulp!&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">});</span>
+</pre></div>
+									<div class="ac-caption">Initial Gulpfile.js</div>
+								</p>
+
+								<p align="justify">
+									This is a bit tricky because we are using the stylish plugin and somehow there are some dependencies to be met. Since it's not so straightforward, let me show you the command:
+
+									<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">npm</span> <span style="color: #d0d0d0">install</span> <span style="color: #d0d0d0">jshint</span> <span style="color: #d0d0d0">gulp-jshint</span> <span style="color: #d0d0d0">jshint-stylish</span> <span style="color: #d0d0d0">--save-dev</span>
+</pre></div>
+<div class="ac-caption">JSHint Plugin Attachment</div>
+								</p>
+
+								<p align="justify">
+									<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">var</span> <span style="color: #a6e22e">gulp</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;gulp&#39;</span><span style="color: #f8f8f2">),</span>
+    <span style="color: #a6e22e">gutil</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;gulp-util&#39;</span><span style="color: #f8f8f2">),</span>
+    <span style="color: #a6e22e">jshint</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;gulp-jshint&#39;</span><span style="color: #f8f8f2">);</span>
+
+<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">jsfiles</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;./src/js/*.js&#39;</span><span style="color: #f8f8f2">;</span>
+
+<span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">task</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;log&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">gutil</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">gutil</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">colors</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">red</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Gulp&#39;</span><span style="color: #f8f8f2">),</span> <span style="color: #a6e22e">gutil</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">colors</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">green</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;is running!&#39;</span><span style="color: #f8f8f2">));</span>
+<span style="color: #f8f8f2">});</span>
+
+<span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">task</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;lint&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">src</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">jsfiles</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pipe</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">jshint</span><span style="color: #f8f8f2">())</span>
+    <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pipe</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">jshint</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">reporter</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;jshint-stylish&#39;</span><span style="color: #f8f8f2">))</span>
+    <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pipe</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">jshint</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">reporter</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;fail&#39;</span><span style="color: #f8f8f2">));</span>
+<span style="color: #f8f8f2">});</span>
+
+<span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">task</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;default&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;log&#39;</span><span style="color: #f8f8f2">],</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">gutil</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Thanks for using&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">gutil</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">colors</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">red</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Gulp!&#39;</span><span style="color: #f8f8f2">));</span>
+<span style="color: #f8f8f2">});</span>
+</pre></div>
+<div class="ac-caption">JSHint Enhancement</div>
+								</p>
+
+								<header>
+                  <h4>Watch</a></h4>
+                </header>
+
+								<p align="justify">
+									One of the most important tasks in my opinion, <strong>watch</strong> will enhance your development experience as you
+									may leave it running and make it aware of every change that happen on the files listed inside your task definition.
+								</p>
+
+								<p align="justify">
+									Yes, it is incredible that you remind those words. But now, with <em>Gulp</em> we can do that without importing plugins, natively, using <code>gulp.watch</code>.
+
+									<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">task</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;watch&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">watch</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">jsfiles</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;lint&#39;</span><span style="color: #f8f8f2">]);</span>
+<span style="color: #f8f8f2">});</span>
+</pre></div>
+									<div class="ac-caption">gulp.watch</div>
+								</p>
+
+								<header>
+                  <h4>Concatenate</a></h4>
+                </header>
+
+								<p align="justify">
+									It is great to have separate files with different concerns but when it comes to build it is kind of cumbersome to not have
+									everything in one spot. That's why we are learning this technique.
+
+									<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">npm</span> <span style="color: #d0d0d0">install</span> <span style="color: #d0d0d0">--save-dev</span> <span style="color: #d0d0d0">gulp-concat</span>
+</pre></div>
+									<div class="ac-caption">Install necessary plugin</div>
+								</p>
+
+								<p align="justify">
+									<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">task</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;concat&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">src</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;src/js/*.js&#39;</span><span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pipe</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">concat</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;all.min.js&#39;</span><span style="color: #f8f8f2">))</span>
+  <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pipe</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">dest</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;dist&#39;</span><span style="color: #f8f8f2">));</span>
+<span style="color: #f8f8f2">});</span>
+</pre></div>
+
+									<div class="ac-caption">Concat snippet</div>
+								</p>
+
+								<header>
+                  <h4>Uglify</a></h4>
+                </header>
+
+								<p align="justify">
+									Just append <code>.pipe(uglify())</code> after your concat command.
+								</p>
+
+								<p align="justify">
+									example: <a href="https://github.com/joellongie/jlgulp/blob/master/gulpfile.js">a huge gulpfile</a>
+								</p>
+
+								<header>
+                  <h4>Del - delete files and folders</a></h4>
+                </header>
+
+								<p align="justify">
+								<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">gulp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">task</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;emptyTrash&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">del</span><span style="color: #f8f8f2">([</span>
+    <span style="color: #e6db74">&#39;dist&#39;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&#39;src/trashbin/junk3.txt&#39;</span><span style="color: #f8f8f2">,</span>        <span style="color: #75715e">// delete this specific file</span>
+    <span style="color: #e6db74">&#39;src/trashbin/old/**/*&#39;</span><span style="color: #f8f8f2">,</span>          <span style="color: #75715e">// delete whatever is inside trashbin/old</span>
+    <span style="color: #e6db74">&#39;!src/trashbin/new/newjunk.txt&#39;</span>      <span style="color: #75715e">// explicitly DO NOT delete this file</span>
+  <span style="color: #f8f8f2">]);</span>
+<span style="color: #f8f8f2">});</span>
+</pre></div>
+									<div class="ac-caption">Deletion snippet</div>
+								</p>
+
+
+																<!-- ############################################################### -->
+
                 <!-- <div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
                   <pre style="margin: 0; line-height: 125%">
                     <span style="color: #d0d0d0">└── nodeCode</span>
