@@ -112,6 +112,10 @@
 							<div class="ac-caption">Brocfile.js with app folder as a tree</div>
             </p>
 
+						<p align="justify">
+							With that Brocfile, the build result would equal the contents of the app tree in your project folder. The command would be <code>broccoli build {{filename}}</code>.
+						</p>
+
             <p align="justify">
               Broccoli seems to be a better version of Gulp when it comes to compactness and faster rebuild times but it is severely lacking
 							in documentation which turned me away from it. You also need to create a separate "public" folder where the trees will be
@@ -250,9 +254,29 @@
 							<span style="float: right;"> – Joakim Carlstein</span>
 						</p>
 
+						<p align="justify">
+							Slush basically runs the gulp module for every generator thereby producing a template as the <code>slushfile</code> specifies. Amongst the most popular generators are <code><a href="https://github.com/slushjs/slush-angular">slush-angular</a></code> and <code><a href="https://github.com/obetomuniz/slush-phonegap">slush-phonegap</a></code>.
 
+							<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">npm</span> <span style="color: #d0d0d0">install</span> <span style="color: #d0d0d0">-g</span> <span style="color: #d0d0d0">slush</span> <span style="color: #d0d0d0">gulp</span> <span style="color: #d0d0d0">bower</span>
+</pre></div>
+							<div class="ac-caption">Install Slush</div>
+						</p>
 
+						<p align="justify">
+							<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">npm</span> <span style="color: #d0d0d0">install</span> <span style="color: #d0d0d0">-g</span> <span style="color: #d0d0d0">slush-angular</span>
+</pre></div>
+							<div class="ac-caption">Install a generator</div>
+						</p>
 
+						<p align="justify">
+							<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">slush</span> <span style="color: #d0d0d0">angular</span>
+</pre></div>
+							<div class="ac-caption">Scaffold your application</div>
+						</p>
+
+						<p align="justify">
+							From this point on, Slush will prompt an interactive process that will allow us to choose our own preferences. Just like we saw Yeoman doing! The upside is that Gulp is ready to serve at port 3000, by running: <code>gulp serve</code>.
+						</p>
 
             </div>
           </section>
@@ -322,8 +346,6 @@
 							that works for you.
 						</p>
 
-						<!-- ################################################################## -->
-
 						<header>
               <h4>I'm no task runner material, what is my alternative?</h4>
             </header>
@@ -357,74 +379,53 @@
               <h4>Bower</h4>
             </header>
 
-            <p align="justify">
-              I've created another branch named <b>Lecture 3</b> in the <a href="https://github.com/andrebot/Lecture2-NodeExpressAC">same repository</a>
-              that we used in <a href="/acbook-nodejs/lecture2.html#four">Lecture 2: Exercises</a>. Please move all the
-              code that you did in the master branch and move it to this new branch.
-            </p>
+						<p align="justify">
+							Self-titled as a package manager for the web, <a href="http://bower.io/">Bower</a> is a good solution for separating front-end dependencies from other scope related packages. <code>npm</code> can handle every kind of package, may it be about server-side, node task related, database or front-end. In a web development context, Bower is supposed to make control just the UI part, keeping packages such as jQuery consistent to what the application asks for.
+						</p>
 
-            <header>
-              <h1>Exercise 1:</h1>
-            </header>
+						<p align="justify">
+							Bower can manage components that contain HTML, CSS, JavaScript, fonts or even image files. Bower doesn’t concatenate or minify code or do anything else - it just installs the right versions of the packages you need and their dependencies.
+						</p>
 
-            <p align="justify">
-              Using the server created at <a href="/acbook-nodejs/lecture2.html#four">Lesson 2: Exercises</a> install
-              the package <i>body-parser</i> and add two middleware to parse url encoded data and json data.
-            </p>
+						<p align="justify">
+							<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">npm</span> <span style="color: #d0d0d0">install</span> <span style="color: #d0d0d0">-g</span> <span style="color: #d0d0d0">bower</span>
+</pre></div>
+							<div class="ac-caption">Install Bower</div>
+						</p>
 
-            <header>
-              <h1>Exercise 2:</h1>
-            </header>
+						<p align="justify">
+							<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">bower</span> <span style="color: #d0d0d0">init</span>
+</pre></div>
+							<div class="ac-caption">Create your <code>bower.json</code></div>
+						</p>
 
-            <p align="justify">
-              Using the same code created at Exercise 1 make the folder <i>public</i> available to be reached by <a>http://localhost:3000</a>.
-            </p>
+						<p align="justify">
+							We may want to append libraries, say jQuery, to our <code>bower.json</code> file. We do it similar to what we've been doing since the first tool explanation, only that now we are using <code>bower</code> command to do the trick.
+							<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">bower</span> <span style="color: #d0d0d0">install</span> <span style="color: #d0d0d0">jquery</span> <span style="color: #d0d0d0">--save</span>
+</pre></div>
+							<div class="ac-caption">Append jQuery to Bower dependencies</div>
+						</p>
 
-            <header>
-              <h1>Exercise 3:</h1>
-            </header>
+						<p align="justify">
+							Bower can be configured using JSON in a .bowerrc file. Look into <a href="http://bower.io/docs/config/">Docs reference</a> for more options. An example of this configuration is:
 
-            <p align="justify">
-              Using the same code created at Exercise 2 create a config file that will hold the server configurations:
-              host, port, appName.
-            </p>
+							<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">{</span>
+  <span style="color: #e6db74">&quot;directory&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;app/components/&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #e6db74">&quot;timeout&quot;</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">120000</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #e6db74">&quot;registry&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #e6db74">&quot;search&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
+      <span style="color: #e6db74">&quot;http://localhost:8000&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #e6db74">&quot;https://bower.herokuapp.com&quot;</span>
+    <span style="color: #f8f8f2">]</span>
+  <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+							<div class="ac-caption">.bowerrc</div>
+						</p>
 
-            <header>
-              <h1>Exercise 4:</h1>
-            </header>
-
-            <p align="justify">
-              <b>CHALLENGE:</b> Using the same code created at Exercise 3 create a middleware which will be triggered before
-              every request that searches for a cookie in the request with the appName defined at the config file create
-              in the last exercise and print its contents on the console.
-            </p>
-
-            <header>
-              <h1>Exercise 5:</h1>
-            </header>
-
-            <p align="justify">
-              Using the same code created at Exercise 4 decouple your routes definitions from the index.js into another file
-              and import it back to index.js and use it as a middleware to define your routes again.
-            </p>
-
-            <header>
-              <h1>Exercise 6:</h1>
-            </header>
-
-            <p align="justify">
-              Using the same code created at Exercise 4 move the cookie middleware into its own folder. Do the same with
-              the file created at Exercise 5 to hold the routes. And again with <i>userDAO</i> and <i>user.schema.js</i>,
-              put them into separate folders. Name those files the way you find it is best.
-            </p>
-
-            <header>
-              <h1>Exercise 7:</h1>
-            </header>
-
-            <p align="justify">
-              Are you IDLE? Ask me for more challenges.
-            </p>
+						<p align="justify">
+							One final tip is to not include the <code>bower_components/</code> folder into your versioning control system. You can always rebuild this folder by using <code>bower install</code>.
+						</p>
           </div>
         </section>
 
