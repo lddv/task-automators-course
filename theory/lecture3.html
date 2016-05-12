@@ -60,8 +60,7 @@
           <ul>
             <li><a href="#one" class="active">Broccoli.js</a></li>
 						<li><a href="#two">Project Scaffolding</a></li>
-            <li><a href="#two">Project Scaffolding</a></li>
-            <li><a href="#three">Exercises</a></li>
+            <li><a href="#three">Common dependencies</a></li>
           </ul>
           <img src="http://www.avenuecode.com/images/AC-logo-big.png" alt="">
         </nav>
@@ -85,9 +84,9 @@
 						</span>
 
             <p align="justify">
-              Broccoli.js is another task runner that comes inside Ember.js 2.x bundle, with ember-cli. This is flexible platform,
-							because it allows the developer to use it alone, or as part of a larger system like Grunt, Rails, or even make.
-							Broccoli just builds what it's told, it does not care about the tools around it.
+              <a href="https://github.com/broccolijs/broccoli">Broccoli.js</a> is another task runner that comes inside Ember.js 2.x bundle, with ember-cli (Ember Command Line Interface). This is a flexible platform,
+							because it allows the developer to use it alone, or as part of a larger system like Grunt, Rails, or even <em>make</em>.
+							Broccoli just builds what it is told, it does not care about the tools around it.
             </p>
 
 						<p align="justify">
@@ -100,6 +99,18 @@
 							<img src="images/broccoli-shortcut.png" alt="Broccoli.js perks" style="width: 100%; margin: 0 auto;"/>
 							<div class="ac-caption">Broccoli.js strong points</div>
 						</span>
+
+						<p align="justify">
+              Broccoli.js may use your project tree folder structure in order to perform its tasks. This <strong>tree</strong> concept is particular from this tool and it's worth talking about.
+						</p>
+
+						<p align="justify">
+							A <a href="https://github.com/broccolijs/broccoli-sample-app/blob/master/Brocfile.js">Brocfile.js</a> file in the project root contains the build specification. It should export a tree. A tree can be any string representing a directory path, like <code>app</code> or <code>src</code>. Or a tree can be an object conforming to the <a href="https://github.com/broccolijs/broccoli#plugin-api-specification">Plugin API Specification</a>. A Brocfile.js will usually directly work with only directory paths, and then use plugins to generate transformed trees.
+
+							<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;app&#39;</span>
+</pre></div>
+							<div class="ac-caption">Brocfile.js with app folder as a tree</div>
+            </p>
 
             <p align="justify">
               Broccoli seems to be a better version of Gulp when it comes to compactness and faster rebuild times but it is severely lacking
@@ -114,10 +125,6 @@
 							<li><a href="http://mimosa.io/index.html">Mimosa</a> - a build tool for modern web development</li>
 							<li><a href="http://brunch.io/">Brunch</a> - An HTML5 build tool with 500ms compilation time</li>
 						</ul>
-
-            <p align="justify">
-              Bottom line, Broccoli.js may use your project tree folder structure in order to perform his tasks.
-            </p>
           </div>
         </section>
 
@@ -137,6 +144,9 @@
 							project. It can follow any kind of standard or pattern that best fits the project's needs.
             </p>
 
+						<p align="justify">
+							The most annoying phase of a development cycle is setting up because the developer does the exact same thing - with few differences - from previous projects.
+
             <p align="justify">
               There are many tools we can use to leverage this advantage of time in our development structure bootstrap. We are going
 							to focus mainly into two tools: Yeoman and Slush.
@@ -146,7 +156,11 @@
               <h2>Yeoman</h2>
             </header>
 
-            <p align="justify">
+						<span class="image fit">
+							<img src="images/yeoman-logo.png" alt="Yeoman" style="width: 50%; margin: 0 auto;"/>
+						</span>
+
+						<p align="justify">
               Yeoman helps to kickstart new projects, prescribing best practices and tools to stay productive. Basically,
 							it provides a generator ecosystem. A generator is basically a plugin that can be run with the <code>yo</code> command
 							to scaffold complete projects or useful parts.
@@ -217,6 +231,29 @@
               <h2>Slush</h2>
             </header>
 
+						<span class="image fit">
+							<img src="images/slush-logo.png" alt="Slush" style="width: 80%; margin: 0 auto;"/>
+						</span>
+
+						<p align="justify">
+							We've seen how <em>Gulp.js</em> works as a task runner, or as they describe themselves, a streaming build system. To use <em>Gulp</em> as a generator, you will have to specify the directory manually with some other required configurations and that is where <em>Slush</em> comes in.
+						</p>
+
+						<p align="justify">
+							Slush serves the purpose of centralizing generators. Slush does not offer any standalone service but depends on <em>Gulp</em>.
+						</p>
+
+						<p align="justify">
+							<i>
+								"Also remember that Slush comes with no functionality of its own, the only thing it provides is a convention and convenience of running global gulpfiles (in this case slushfiles) with the purpose of scaffolding projects, or anything else useful for that matter. So if something is missing it should probably be implemented as a gulp plugin."
+							</i>
+							<span style="float: right;"> – Joakim Carlstein</span>
+						</p>
+
+
+
+
+
             </div>
           </section>
 
@@ -224,7 +261,100 @@
         <section id="three">
           <div class="container">
             <header class="major">
-              <h2>Exercises</h2>
+              <h2>Common dependencies</h2>
+            </header>
+
+						<header class="major">
+              <h4>NPM</h4>
+            </header>
+
+						<p align="justify">
+							We referred to the Node Package Manager everytime we wanted to install a dependency or a plugin to make our tasks work in the last few days. Let's check out a sample of our <code>package.json</code> file. It is written using JSON annotation. It has all kind of application's info, from the application's name, its version, quick description to the dependencies.
+
+							<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">{</span>
+  <span style="color: #e6db74">&quot;name&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;test&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #e6db74">&quot;version&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;1.0.0&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #e6db74">&quot;description&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #e6db74">&quot;main&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;gulpfile.js&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #e6db74">&quot;test&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
+  <span style="color: #f8f8f2">},</span>
+  <span style="color: #e6db74">&quot;author&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #e6db74">&quot;license&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;ISC&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #e6db74">&quot;devDependencies&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #e6db74">&quot;del&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;^2.2.0&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&quot;gulp&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;^3.9.1&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&quot;gulp-concat&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;^2.6.0&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&quot;gulp-jshint&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;^2.0.1&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&quot;gulp-uglify&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;^1.5.3&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&quot;gulp-util&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;^3.0.7&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&quot;jshint&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;^2.9.2&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&quot;jshint-stylish&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;^2.2.0&quot;</span>
+  <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+							<div class="ac-caption">package.json</div>
+            </p>
+
+						<p align="justify">
+							You can find the whole package.json documentation <a href="https://docs.npmjs.com/files/package.json">here</a>.
+							It explains all the possible attributes and what you can do with each one of them.
+						</p>
+
+						<p align="justify">
+							From our <em>devDependencies</em> block, we can see that we can control which version to be installed. Take this line for instance: <code>"gulp-jshint": "^2.0.1"</code>. Obviously this is the version that we want to use. But what is this symbol that comes after the version number? That is another type of annotation. We can actually define if we want an exact version, any version above and etc. Here is a list about what we can do:
+						</p>
+
+						<ul>
+							<li>">"</li>
+							<li>">="</li>
+							<li>"<"</li>
+							<li>"<="</li>
+							<li>"~"</li>
+							<li>"^": compatible version</li>
+							<li>and many others...</li>
+						</ul>
+
+						<p align="justify">
+							The list goes on! We can see the full list and its meaning in the same link for the package.json
+							documentation, or directly to <a href="https://docs.npmjs.com/misc/semver">semver</a>. So you can pretty much control every aspect of you packages. Therefore, to add any new
+							package to you project you can just edit this file and add anything that you'd like and add any version
+							that works for you.
+						</p>
+
+						<!-- ################################################################## -->
+
+						<header>
+              <h4>I'm no task runner material, what is my alternative?</h4>
+            </header>
+
+						<p align="justify">
+							So you don't like any tool I talk about? What if I told you that there is a tool which can run build scripts, carry configuration values, is streaming, has an incredibly simple API, and comes free with every Node.js installation? <a href="http://npmjs.org/">npm</a>.
+            </p>
+
+						<p align="justify">
+							npm's <code>scripts</code> object lives inside <em>package.json</em>, meaning there is no new files to add to your project. The object has properties, which are the task names, and values which are the commands. It is so unbelievably simple that it baffles me why we ever needed other build tools in the first place. Let's take a JSHint example and port it to NPM:
+
+							<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #e6db74">&quot;devDependencies&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #e6db74">&quot;jshint&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;latest&quot;</span><span style="color: #f8f8f2">,</span>
+<span style="color: #f8f8f2">},</span>
+<span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #e6db74">&quot;lint&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;jshint **.js&quot;</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+							<div class="ac-caption">JSHint with NPM only</div>
+            </p>
+
+						<p align="justify">
+							That's it! You introduce 1 extra dependency, and 1 line of code, per tool you wish to use. Then just call <code>npm run lint</code> and voila! A bad result will provide a non-zero exit code, and the results that come out are streamable!
+						</p>
+
+						<p align="justify">
+							If you are interested in having a deeper vision on this topic, I recommend <a href="http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/">this article</a>.
+						</p>
+
+						<header class="major">
+              <h4>Bower</h4>
             </header>
 
             <p align="justify">
